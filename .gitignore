@@ -171,3 +171,4 @@ gen### VirtualEnv template
 pyvenv.cfg
 pip-selfcheck.json
 
+/todoapp/settings_priv.py
