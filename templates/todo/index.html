@@ -5,8 +5,13 @@
         <title>ToDoApp</title>
         {% load static %}
     </head>
-        <body>
+        <body ng-app="toDo" ng-controller="toDoController">
             <h1>ToDoApp</h1>
+            <form>
+                <input type="text">
+                <input type="submit" value="Submit">
+            </form>
+            <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular.min.js"></script>
             <script src="{% static 'js/todo.js'%}"></script>
         </body>
 </html>

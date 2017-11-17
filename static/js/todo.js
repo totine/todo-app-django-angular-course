@@ -1,3 +1,4 @@
-/**
- * Created by joanna on 15.11.17.
- */
+var app = angular.module('toDo', []);
+app.controller('toDoController', function ($scope) {
+    
+});
