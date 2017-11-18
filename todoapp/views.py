@@ -7,5 +7,6 @@ from todoapp.serializers import ToDoSerializer
 
 class ToDoView(APIView):
     def get(self, request):
-        serializer = ToDoSerializer()
+        todos = ToDoElement.objects.all()
+        serializer = ToDoSerializer(todos, many=True)
         return Response(serializer.data)
