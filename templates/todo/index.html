@@ -7,10 +7,19 @@
     </head>
         <body ng-app="toDo" ng-controller="toDoController">
             <h1>ToDoApp</h1>
-            <form>
-                <input type="text">
-                <input type="submit" value="Submit">
-            </form>
+            <div>
+                <form ng-submit="todoAdd()">
+                    <input type="text" ng-model="todoInput" placeholder="Add a new todo">
+                    <input type="submit" value="Submit">
+                </form>
+            </div>
+            <div ng-repeat="todo in todoList">
+                <input type="checkbox" ng-model="todo.done">
+                <span ng-bind="todo.todoText"></span>
+            </div>
+            <div>
+                <button ng-click="removeDoneTodos()">Done</button>
+            </div>
             <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular.min.js"></script>
             <script src="{% static 'js/todo.js'%}"></script>
         </body>
