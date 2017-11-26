@@ -11,6 +11,11 @@ app.controller('toDoController', function ($scope, $http) {
         }
 
     });
+    $scope.saveData = function () {
+        var data = {text: $scope.todoInput, done: false};
+        $http.put('/todo/api/', data);
+    };
+
     $scope.todoAdd = function () {
         $scope.todoList.push({todoText: $scope.todoInput, done: false});
         $scope.todoInput = '';

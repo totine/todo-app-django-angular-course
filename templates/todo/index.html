@@ -10,7 +10,7 @@
             <div>
                 <form ng-submit="todoAdd()">
                     <input type="text" ng-model="todoInput" placeholder="Add a new todo">
-                    <input type="submit" value="Submit">
+                    <button type="submit" ng-click="saveData()">Submit</button>
                 </form>
             </div>
             <div ng-repeat="todo in todoList">
