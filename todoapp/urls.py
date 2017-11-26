@@ -22,5 +22,5 @@ from todoapp.views import ToDoView
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', TemplateView.as_view(template_name='todo/index.html')),
-    url(r'todo/api/', ToDoView.as_view())
+    url(r'todo/api/', ToDoView.as_view()),
 ]
