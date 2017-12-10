@@ -5,4 +5,4 @@ from todoapp.models import ToDoElement
 class ToDoSerializer(serializers.ModelSerializer):
     class Meta:
         model = ToDoElement
-        fields = ('id', 'text', 'is_done')
+        fields = ('id', 'text', 'done')

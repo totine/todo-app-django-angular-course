@@ -6,11 +6,13 @@ app.controller('toDoController', function ($scope, $http) {
         for (var i=0; i<response.data.length; i++) {
             var todo = {};
             todo.todoText = response.data[i].text;
-            todo.done = response.data[i].isDone;
+            todo.done = response.data[i].done;
+            todo.id = response.data[i].id;
             $scope.todoList.push(todo);
         }
 
     });
+
     $scope.saveData = function () {
         var data = {text: $scope.todoInput, done: false};
         $http.put('/todo/api/', data);
@@ -20,11 +22,12 @@ app.controller('toDoController', function ($scope, $http) {
         $scope.todoList.push({todoText: $scope.todoInput, done: false});
         $scope.todoInput = '';
     };
+
     $scope.removeDoneTodos = function () {
         var oldList = $scope.todoList;
         $scope.todoList = [];
         angular.forEach(oldList, function (x) {
-            if (!x.done) $scope.todoList.push(x);
+            x.done ? $http.delete('/todo/api/'+x.id+'/') : $scope.todoList.push(x);
         });
     };
     
