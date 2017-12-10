@@ -27,3 +27,8 @@ class ToDoDetailView(APIView):
         serializer = ToDoSerializer(todo)
         return Response(serializer.data)
 
+    def delete(self, request, pk):
+        todo = get_object_or_404(ToDoElement, pk=pk)
+        todo.delete()
+        return Response(status=status.HTTP_204_NO_CONTENT)
+
